@@ -1,0 +1,72 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    allure-rspec (2.23.0)
+      allure-ruby-commons (= 2.23.0)
+      rspec-core (>= 3.8, < 4)
+    allure-ruby-commons (2.23.0)
+      mime-types (>= 3.3, < 4)
+      require_all (>= 2, < 4)
+      rspec-expectations (~> 3.12)
+      uuid (>= 2.3, < 3)
+    appium_lib_core (11.1.1)
+      faye-websocket (>= 0.11, < 0.13)
+      selenium-webdriver (~> 4.21)
+    base64 (0.3.0)
+    diff-lcs (1.6.2)
+    eventmachine (1.2.7)
+    faye-websocket (0.12.0)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.8.0)
+    logger (1.7.0)
+    macaddr (1.7.2)
+      systemu (~> 2.6.5)
+    mime-types (3.7.0)
+      logger
+      mime-types-data (~> 3.2025, >= 3.2025.0507)
+    mime-types-data (3.2025.0924)
+    power_assert (3.0.0)
+    require_all (3.0.0)
+    rexml (3.4.4)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
+    rubyzip (3.2.2)
+    selenium-webdriver (4.38.0)
+      base64 (~> 0.2)
+      logger (~> 1.4)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2, < 4.0)
+      websocket (~> 1.0)
+    systemu (2.6.5)
+    test-unit (3.7.1)
+      power_assert
+    uuid (2.3.9)
+      macaddr (~> 1.0)
+    websocket (1.2.11)
+    websocket-driver (0.8.0)
+      base64
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  allure-rspec (~> 2.23.0)
+  appium_lib_core
+  rspec (~> 3.12)
+  test-unit
+
+BUNDLED WITH
+   2.7.2
