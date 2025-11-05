@@ -54,7 +54,7 @@ Ejecutando la siguiente línea se puede instalar fácilmente el driver:
 appium driver install uiautomator2
 ```
 
-###Importante: sobre el entorno de ejecución de las pruebas
+## **Importante: sobre el entorno de ejecución de las pruebas**
 
 Las pruebas fueron ejecutadas en un entorno bajo la siguiente configuracion:
 
