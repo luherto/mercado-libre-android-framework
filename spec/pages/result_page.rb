@@ -2,8 +2,8 @@
 require_relative '../helpers/base_page'
 
 class ResultsPage < BasePage
-  PRODUCT_NAME_XPATH = "//android.widget.TextView[starts-with(@text, 'Playstation Ps5')]"
-  PRODUCT_PRICE_XPATH = "//android.widget.TextView[@resource-id='current amount']"
+  PRODUCT_NAME_XPATH = "//android.view.View[@resource-id='polycard_component']//android.widget.TextView[contains(translate(@text, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'playstation')]"
+  PRODUCT_PRICE_XPATH = "//android.widget.RelativeLayout//android.view.View[@resource-id='polycard_component']//android.widget.TextView[@resource-id='current amount']"
 
 def list_top_results(n)
   wait_for_results
@@ -13,8 +13,8 @@ def list_top_results(n)
 
   loop do
     # Obtener los elementos visibles
-    names = @driver.find_elements(:xpath, '//android.widget.TextView[contains(@text, "Playstation Ps5")]')
-    prices = @driver.find_elements(:xpath, "//android.widget.TextView[@resource-id='current amount']")
+    names = @driver.find_elements(:xpath, PRODUCT_NAME_XPATH)
+    prices = @driver.find_elements(:xpath, PRODUCT_PRICE_XPATH)
 
     names.each_with_index do |name, i|
       price_text = prices[i]&.attribute('text') || 'N/A'
@@ -33,7 +33,8 @@ def list_top_results(n)
 
   puts "🔍 Se encontraron los siguientes resultados:"
   results.each_with_index do |r, index|
-    puts "#{index + 1}. #{r[:name]} — #{r[:price]}"
+    clean_price = r[:price].gsub('[space]', ' ').gsub('[decimals]', '')
+    puts "#{index + 1}. #{r[:name]} — #{clean_price}"
   end
 end
 
