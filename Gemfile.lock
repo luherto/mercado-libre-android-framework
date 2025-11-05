@@ -64,6 +64,7 @@ PLATFORMS
 
 DEPENDENCIES
   allure-rspec (~> 2.23.0)
+  allure-ruby-commons (~> 2.21)
   appium_lib_core
   rspec (~> 3.12)
   test-unit
