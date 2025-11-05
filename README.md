@@ -71,7 +71,6 @@ Las pruebas fueron ejecutadas en un entorno bajo la siguiente configuracion:
 | **Mercado libre**              | Instalado desde Play Store                 |
 
 Los gestos de desplazamiento (scroll) y la detección de elementos se ajustaron específicamente para esta resolución y versión de Android. En pantallas con diferentes dimensiones o densidades, podrían requerirse pequeños ajustes en los parámetros de scroll o tiempos de espera.
-
 ## **Clonar y ejecutar este repositorio**
 
 Para clonar este repositorio solo será necesario pegar la siguiente línea en la consola:
@@ -79,8 +78,33 @@ Para clonar este repositorio solo será necesario pegar la siguiente línea en l
 ```
 git clone https://github.com/luherto/mercado-libre-android-framework.git
 ```
+El repositorio sigue una estructura modular basada en el patrón Page Object Model (POM):
 
-Posteriormente, entrar al directorio creado:
+```
+📦 mercado-libre-android-framework
+ ┣ 📂 spec
+ ┃ ┣ 📂 helpers
+ ┃ ┃ ┣ 📜 driver_setup.rb        # Configuración del driver Appium y capacidades
+ ┃ ┃ ┗ 📜 base_page.rb           # Clase base con métodos reutilizables (scroll, waits, etc.)
+ ┃ ┣ 📂 pages
+ ┃ ┃ ┣ 📜 home_page.rb           # Acciones e interacciones de la pantalla principal
+ ┃ ┃ ┗ 📜 result_page.rb         # Métodos para listar y capturar resultados de búsqueda
+ ┃ ┗ 📂 tests
+ ┃    ┗ 📜 mercado_libre_test.rb # Flujo principal de la prueba automatizada
+ ┣ 📜 Gemfile                    # Dependencias del proyecto (Appium, TestUnit, etc.)
+ ┣ 📜 README.md                  # Documentación y guía de ejecución
+ ┗ 📜 .gitignore                 # Exclusión de archivos no necesarios para el repositorio
+
+```
+Cada componente cumple una función específica:
+
+helpers/ → Configuración del entorno y utilidades generales.
+
+pages/ → Definición de las pantallas de la aplicación y sus acciones (POM).
+
+tests/ → Implementación del flujo de prueba automatizado.
+
+Para entrar al repositorio clonado se debera de ejecutar el siguiente comando:
 
 ```
 cd mercado-libre-android-framework
