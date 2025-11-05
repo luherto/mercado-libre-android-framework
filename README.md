@@ -1,12 +1,12 @@
 no, lo deje con ruby nadamas porque pues no pude generar el reporte xd
 
-## **Prueba automatizada de la aplicacion movil de Mercado Libre**
+## **Prueba automatizada de la aplicación movil de Mercado Libre**
 
 Prueba automatizada del flujo principal de búsqueda en la app Mercado Libre (Android) utilizando Appium y Ruby
 
 ***
 
-### Requisitos:
+### **Requisitos:**
 
 ***
 
