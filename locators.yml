@@ -1,0 +1,2 @@
+SEARCH_FIELD = { xpath: '//android.widget.EditText[@resource-id="com.mercadolibre:id/autosuggest_input_search"]' }
+
