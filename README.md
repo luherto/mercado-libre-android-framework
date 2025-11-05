@@ -1,5 +1,3 @@
-no, lo deje con ruby nadamas porque pues no pude generar el reporte xd
-
 ## **Prueba automatizada de la aplicación movil de Mercado Libre**
 
 Prueba automatizada del flujo principal de búsqueda en la app Mercado Libre (Android) utilizando Appium y Ruby
@@ -92,5 +90,3 @@ ruby spec/tests/mercado_libre_test.rb
 - Generar un reporte de Allure con capturas especificas de cada paso
 
 - Incluir soporte iOS con capabilities específicas.
-
-pero bueno, agregale acentos que faltan por favor
