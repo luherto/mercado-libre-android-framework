@@ -10,12 +10,8 @@ class HomePage < BasePage
   HIGHEST_PRICE_BUTTON={xpath: '//android.widget.ToggleButton[@resource-id="sort-price_desc"]'}
   SEE_BUTTON= {xpath:'//android.widget.Button[@resource-id=":r3:"]'}
 
-  CONDICION={xpath:'//android.view.View[@content-desc="Condición"]'}
+  CONDITION={xpath:'//android.view.View[@content-desc="Condición"]'}
   NEW_BUTTON= {xpath: '//android.widget.ToggleButton[@resource-id="ITEM_CONDITION-2230284"]'}
-  ENVIOS={xpath:'//android.widget.TextView[contains(@text, "Envíos")]'}
-  C_CONTROLES={xpath:'//android.widget.TextView[contains(@text, "Cantidad de controles")]'}
-  WI_FI={xpath:'//android.view.View[@content-desc="Con Wi-Fi"]'}
-  ORDENAR_POR={xpath:'//android.widget.TextView[@text="Ordenar por"]'}
   LOCAL_BUTTON= {xpath:'//android.widget.ToggleButton[@resource-id="SHIPPING_ORIGIN-10215068"]'}
 
   PRODUCT_NAME_XPATH = "//android.widget.TextView[starts-with(@text, 'Playstation Ps5')]"
@@ -29,11 +25,11 @@ class HomePage < BasePage
     @driver.press_keycode(66) # enter
   end
 
-  def country_selection()
+  def country_selection
     scroll_to_text("México").click
   end
 
-  def guest_option()
+  def select_guest_option()
     wait_for(GUEST_SELECTOR)
     @driver.find_element(GUEST_SELECTOR).click
   end
@@ -43,73 +39,34 @@ class HomePage < BasePage
     @driver.find_element(FILTER_LIST).click
   end
 
-  def open_sort_menu
-    scroll_to_text("Condición").click
-    wait_for(NEW_BUTTON)
-    @driver.find_element(NEW_BUTTON).click
-
-    # Esperar a que el contenedor se recargue
-    sleep 1.5
-
-    # Rehacer el scroll para asegurarse que 'Envíos' esté visible
+  def scroll_and_click(text)
     retries = 0
     begin
-      scroll_to_text("Envíos").click
+      scroll_to_text(text).click
     rescue Selenium::WebDriver::Error::NoSuchElementError
       retries += 1
       small_scroll_down
       retry if retries < 3
-      raise "No se pudo encontrar 'Envíos' después de reintentar"
+      raise "No se pudo encontrar '#{text}' después de reintentar"
     end
-    
-    wait_for(LOCAL_BUTTON)
-    @driver.find_element(LOCAL_BUTTON).click
-    
-    retries=0
-    begin
-      scroll_to_text("Marca").click
-    rescue Selenium::WebDriver::Error::NoSuchElementError
-      retries += 1
-      small_scroll_down
-      retry if retries < 3
-      raise "No se pudo encontrar 'Marca' después de reintentar"
-    end
+  end
 
-    retries=0
-    begin
-        scroll_to_text("Incluye controles").click
-    rescue Selenium::WebDriver::Error::NoSuchElementError
-      retries += 1
-      small_scroll_down
-      retry if retries < 3
-      raise "No se pudo encontrar 'Incluye controles' después de reintentar"
-    end
+  def open_sort_menu
+      scroll_and_click("Condición")
+      wait_for(NEW_BUTTON)
+      @driver.find_element(NEW_BUTTON).click
 
-    retries=0
-    begin
-        scroll_to_text("Eficiencia energética").click
-    rescue Selenium::WebDriver::Error::NoSuchElementError
-      retries += 1
-      small_scroll_down
-      retry if retries < 3
-      raise "No se pudo encontrar 'Eficiencia energética' después de reintentar"
-    end
+      sleep 1.5
+      scroll_and_click("Envíos")
+      wait_for(LOCAL_BUTTON)
+      @driver.find_element(LOCAL_BUTTON).click
 
-    retries=0
-    begin
-        scroll_to_text("Ordenar por").click
-    rescue Selenium::WebDriver::Error::NoSuchElementError
-      retries += 1
-      small_scroll_down
-      retry if retries < 3
-      raise "No se pudo encontrar 'Ordenar por' después de reintentar"
-    end
+      %w[Marca Incluye\ controles Eficiencia\ energética Ordenar\ por].each { |section| scroll_and_click(section) }
 
-
-    wait_for(HIGHEST_PRICE_BUTTON)
-    @driver.find_element(HIGHEST_PRICE_BUTTON).click
-    @driver.find_element(SEE_BUTTON).click
-    sleep 1
+      wait_for(HIGHEST_PRICE_BUTTON)
+      @driver.find_element(HIGHEST_PRICE_BUTTON).click
+      @driver.find_element(SEE_BUTTON).click
+      sleep 1
   end 
   
   

@@ -17,10 +17,10 @@ class BasePage
   end
 
   def scroll_to_text(text)
-  @driver.find_element(
-    :uiautomator,
-    'new UiScrollable(new UiSelector().className("androidx.recyclerview.widget.RecyclerView")).scrollIntoView(new UiSelector().textContains("' + text + '"));'
-  )
+    @driver.find_element(
+      :uiautomator,
+      'new UiScrollable(new UiSelector().className("androidx.recyclerview.widget.RecyclerView")).scrollIntoView(new UiSelector().textContains("' + text + '"));'
+    )
   end
 
 end

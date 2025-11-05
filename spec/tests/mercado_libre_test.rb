@@ -19,7 +19,7 @@ class MercadoLibreTest < Test::Unit::TestCase
 
   def test_full_flow
     @home.country_selection
-    @home.guest_option
+    @home.select_guest_option
     @home.search_for('playstation 5')
     @home.filter_click
     @home.open_sort_menu
