@@ -7,7 +7,7 @@
 3. [Entorno de ejecución de las pruebas](#importante-sobre-el-entorno-de-ejecución-de-las-pruebas)
 4. [Clonar y ejecutar este repositorio](#clonar-y-ejecutar-este-repositorio)
 5. [Estructura del proyecto](#estructura-del-proyecto)
-6. [Ejecución de pruebas y reporte Allure](#ejecución-de-pruebas-y-reporte-allure)
+6. [Ejecución de pruebas y reporte Allure](#ejecutar-las-pruebas)
 7. [Mejoras futuras](#mejoras-futuras)
 
 Prueba automatizada del flujo principal de búsqueda en la app Mercado Libre (Android) utilizando Appium y Ruby
@@ -88,6 +88,8 @@ Para clonar este repositorio solo será necesario pegar la siguiente línea en l
 ```
 git clone https://github.com/luherto/mercado-libre-android-framework.git
 ```
+## **Estructura del proyecto** 
+
 El repositorio sigue una estructura modular basada en el patrón Page Object Model (POM):
 
 ```
