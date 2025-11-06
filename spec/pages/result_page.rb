@@ -31,6 +31,7 @@ def list_top_results(n)
     })
   end
 
+  #Obtener lista de resultados
   puts "🔍 Se encontraron los siguientes resultados:"
   results.each_with_index do |r, index|
     clean_price = r[:price].gsub('[space]', ' ').gsub('[decimals]', '')
@@ -40,6 +41,7 @@ end
 
   private
 
+  #Mostrar los resultados en pantalla
   def wait_for_results
     @driver.wait_true(timeout: 15) do
       @driver.find_elements(:xpath, PRODUCT_NAME_XPATH).any?

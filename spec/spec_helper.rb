@@ -15,6 +15,8 @@ require_relative 'helpers/driver_setup'
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+#Configurar Allure
 AllureRspec.configure do |config|
   config.results_directory = "output/allure-results"  # Carpeta donde se guardan los resultados
   config.clean_results_directory = true               # Limpia resultados antes de cada ejecución
@@ -26,6 +28,7 @@ RSpec.configure do |config|
     @driver = create_driver
   end
 
+  #Verificar que el driver inicie correctamente
   config.after(:all) do
     begin
       @driver.quit if @driver
@@ -34,6 +37,7 @@ RSpec.configure do |config|
     end
   end
 
+  #Hacer que despues de cada paso se tomen capturas de pantalla
   config.after(:example) do |example|
     timestamp = Time.now.strftime("%Y%m%d_%H%M%S")
     screenshot_path = "output/screenshots/#{example.full_description.gsub(' ', '_')}_#{timestamp}.png"
