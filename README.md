@@ -82,6 +82,9 @@ El repositorio sigue una estructura modular basada en el patrón Page Object Mod
 
 ```
 📦 mercado-libre-android-framework
+ ┣ 📂 Output
+ ┃ ┣📂 allure-results            #Reporte de allure para servir
+ ┃ ┣📂 screeenshots              #Capturas de pantalla de las pruebas realizadas
  ┣ 📂 spec
  ┃ ┣ 📂 helpers
  ┃ ┃ ┣ 📜 driver_setup.rb        # Configuración del driver Appium y capacidades
@@ -90,7 +93,7 @@ El repositorio sigue una estructura modular basada en el patrón Page Object Mod
  ┃ ┃ ┣ 📜 home_page.rb           # Acciones e interacciones de la pantalla principal
  ┃ ┃ ┗ 📜 result_page.rb         # Métodos para listar y capturar resultados de búsqueda
  ┃ ┗ 📂 tests
- ┃    ┗ 📜 mercado_libre_test.rb # Flujo principal de la prueba automatizada
+ ┃    ┗ 📜 mercado_libre_spec.rb # Flujo principal de la prueba automatizada
  ┣ 📜 Gemfile                    # Dependencias del proyecto (Appium, TestUnit, etc.)
  ┣ 📜 README.md                  # Documentación y guía de ejecución
  ┗ 📜 .gitignore                 # Exclusión de archivos no necesarios para el repositorio
@@ -127,8 +130,11 @@ Finalmente, ejecutar las pruebas con el siguiente comando
 rspec spec
 ```
 
-## **Mejoras futuras**
+Y generar el reporte de allure
+```
+allure serve output/allure-results
+```
 
-- Generar un reporte de Allure con capturas específicas de cada paso
+## **Mejoras futuras**
 
 - Incluir soporte iOS
