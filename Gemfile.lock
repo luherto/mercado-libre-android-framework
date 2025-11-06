@@ -63,10 +63,10 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  allure-rspec (~> 2.23.0)
-  allure-ruby-commons (~> 2.21)
+  allure-rspec
+  allure-ruby-commons
   appium_lib_core
-  rspec (~> 3.12)
+  rspec
   test-unit
 
 BUNDLED WITH

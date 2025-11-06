@@ -15,6 +15,12 @@ require_relative 'helpers/driver_setup'
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+AllureRspec.configure do |config|
+  config.results_directory = "output/allure-results"  # Carpeta donde se guardan los resultados
+  config.clean_results_directory = true               # Limpia resultados antes de cada ejecución
+  config.logging_level = Logger::INFO
+end
+
 RSpec.configure do |config|
   config.before(:all) do
     @driver = create_driver
@@ -26,6 +32,19 @@ RSpec.configure do |config|
     rescue Selenium::WebDriver::Error::InvalidSessionIdError
       puts '⚠️  Sesión Appium ya estaba cerrada.'
     end
+  end
+
+  config.after(:example) do |example|
+    timestamp = Time.now.strftime("%Y%m%d_%H%M%S")
+    screenshot_path = "output/screenshots/#{example.full_description.gsub(' ', '_')}_#{timestamp}.png"
+    FileUtils.mkdir_p(File.dirname(screenshot_path))
+    @driver.save_screenshot(screenshot_path)
+    Allure.add_attachment(
+      name: "Evidencia - #{example.description}",
+      source: File.open(screenshot_path),
+      type: Allure::ContentType::PNG,
+      test_case: true
+    )
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
