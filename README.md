@@ -124,7 +124,7 @@ appium
 Finalmente, ejecutar las pruebas con el siguiente comando
 
 ```
-ruby spec/tests/mercado_libre_test.rb
+rspec spec
 ```
 
 ## **Mejoras futuras**
