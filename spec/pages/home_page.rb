@@ -42,10 +42,13 @@ class HomePage < BasePage
   def scroll_and_click(text)
     retries = 0
     begin
+      @driver.find_element(
+        :uiautomator,
+        "new UiScrollable(new UiSelector().scrollable(true)).scrollForward();"
+      )
       scroll_to_text(text).click
     rescue Selenium::WebDriver::Error::NoSuchElementError
       retries += 1
-      small_scroll_down
       retry if retries < 3
       raise "No se pudo encontrar '#{text}' después de reintentar"
     end

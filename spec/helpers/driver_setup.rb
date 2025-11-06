@@ -4,7 +4,7 @@ require 'appium_lib_core'
 def create_driver
   caps = {
     platformName: 'Android',
-    automationName: 'uiautomator2',
+    automationName: 'UiAutomator2',
     deviceName: 'Android',
     appPackage: 'com.mercadolibre',
     appActivity: 'com.mercadolibre.navigation.activities.BottomBarActivity',
