@@ -1,12 +1,22 @@
 ## **Prueba automatizada de la aplicación móvil de Mercado Libre**
 
+1. [Descripción general](#prueba-automatizada-de-la-aplicación-móvil-de-mercado-libre)
+2. [Requisitos](#requisitos)
+   - [Instalación de Ruby](#ruby-3x)
+   - [Instalación de Appium y UiAutomator2](#appium-server-y-uiautomator2-driver)
+3. [Entorno de ejecución de las pruebas](#importante-sobre-el-entorno-de-ejecución-de-las-pruebas)
+4. [Clonar y ejecutar este repositorio](#clonar-y-ejecutar-este-repositorio)
+5. [Estructura del proyecto](#estructura-del-proyecto)
+6. [Ejecución de pruebas y reporte Allure](#ejecución-de-pruebas-y-reporte-allure)
+7. [Mejoras futuras](#mejoras-futuras)
+
 Prueba automatizada del flujo principal de búsqueda en la app Mercado Libre (Android) utilizando Appium y Ruby
 
-***
+---
 
 ### **Requisitos:**
 
-***
+---
 
 #### **Ruby 3.x**
 
@@ -124,6 +134,10 @@ Posteriormente, se requerirá lanzar un dispositivo desde Android Studio (prefer
 appium
 ```
 
+## **Ejecutar las pruebas** 
+
+---
+
 Finalmente, ejecutar las pruebas con el siguiente comando
 
 ```
@@ -134,6 +148,8 @@ Y generar el reporte de allure
 ```
 allure serve output/allure-results
 ```
+
+El cual se abrira automaticamente en el navegador despues de ser servido 
 
 ## **Mejoras futuras**
 
